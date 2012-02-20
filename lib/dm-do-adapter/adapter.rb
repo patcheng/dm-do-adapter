@@ -229,7 +229,7 @@ module DataMapper
             port = @options[:port].nil? ? nil : @options[:port].to_int
 
             DataObjects::URI.new(
-              :scheme     => @options[:adapter],
+              :scheme     => @options[:scheme] || @options[:adapter],
               :user       => @options[:user] || @options[:username],
               :password   => @options[:password],
               :host       => @options[:host],
