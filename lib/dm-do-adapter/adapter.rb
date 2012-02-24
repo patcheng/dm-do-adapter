@@ -266,7 +266,7 @@ module DataMapper
         super
 
         # Default the driver-specific logger to DataMapper's logger
-        if driver_module = DataObjects.const_get(normalized_uri.scheme.capitalize)
+        if driver_module = DataObjects.adapter_name(normalized_uri)
           driver_module.logger = DataMapper.logger if driver_module.respond_to?(:logger=)
         end
       end
